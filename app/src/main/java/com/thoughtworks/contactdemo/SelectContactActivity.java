@@ -17,6 +17,7 @@ public class SelectContactActivity extends AppCompatActivity {
     public static final String TAG = "SelectContactActivity";
     public static final int REQUEST_SELECT_CONTACT = 1;
     private Button selectContactButton;
+    private Button lifecycleDemoButton;
     private TextView contactInfoTextView;
     private Uri uri;
 
@@ -26,6 +27,7 @@ public class SelectContactActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select_contact);
 
         selectContactButton = findViewById(R.id.select_contact_button);
+        lifecycleDemoButton = findViewById(R.id.lifecycle_demo_button);
         contactInfoTextView = findViewById(R.id.contact_info_text_view);
         selectContactButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +35,17 @@ public class SelectContactActivity extends AppCompatActivity {
                 selectContact();
             }
         });
+        lifecycleDemoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLifecycleDemoActivity();
+            }
+        });
+    }
+
+    private void openLifecycleDemoActivity() {
+        Intent intent = new Intent(this, LifecycleDemoActivity.class);
+        startActivity(intent);
     }
 
     @Override
